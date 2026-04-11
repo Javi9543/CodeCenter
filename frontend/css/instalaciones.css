@@ -1,21 +1,18 @@
-* {
+
+body {
+  background-color: #154b7e;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  background-color: #154b7e;
-  color: #ffffff;
-  font-family: Arial, sans-serif;
-}
-
 /* --- Menú superior --- */
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-be;
   align-items: center;
   background-color: #191e29;
+  border-bottom: solid 3px #5D9CEC;
   padding: 0.5rem 5%;
   color: white;
   position: sticky;
@@ -35,21 +32,25 @@ body {
   margin: 0;
 }
 
-.usuario-logeado {
-  margin-left: 21vw;
+.nav-menu a {
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: color 0.3s;
+  font-size: 1.25rem;
+  color: white;
+  letter-spacing: 2px;
+  display: block;
+  position: relative;
+  z-index: 10;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #191e29;
-  border-bottom: solid 3px #5D9CEC;   
-  padding: 0.5rem 5%;
-  color: white;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+.nav-menu a:hover {
+  color: grey;
+}
+
+.usuario-logeado {
+  margin-left: 21vw;
 }
 
 .nav-menu a:hover {
