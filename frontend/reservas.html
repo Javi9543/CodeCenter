@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_blue.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>CodeCenter</title>
+</head>
+
+<<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <img src="img/logo.png">
+        </div>
+
+        <ul class="nav-menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="horario.html">Horario</a></li>
+            <li><a href="reservas.html">Mis Reservas</a></li>
+            <li><a href="nuevaReserva.html">Nueva Reserva</a></li>
+            <li>         </li>
+            <li class="usuario-logeado">
+                <a href="perfil.html">
+                    <span class="icono-user">👤</span> Hola, Juan Pérez
+                </a>
+            </li>
+        </ul>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <div class="contenedor-principal">
+        <h1 class="titulo-reserva">Calendario de disponibilidad</h1>
+        <p class="subtitulo-reserva">Selecciona un día para ver los horarios en <span id="nombre-deporte" style="color: #5D9CEC; font-weight: bold;">...</span></p>
+        
+        <div class="calendario-wrapper">
+            <div id="calendario-inline"></div>
+            
+            <div class="calendario-leyenda">
+                <div class="leyenda-item"><span class="punto hoy"></span> Hoy</div>
+                <div class="leyenda-item"><span class="punto seleccionado"></span> Seleccionado</div>
+                <div class="leyenda-item"><span class="punto ocupado"></span> No disponible</div>
+            </div>
+        </div>
+
+        <div id="selector-horas" style="display:none; margin-top: 20px;">
+            <h3>Horas disponibles para el <span id="fecha-elegida"></span></h3>
+            <div class="grid-horas">
+                </div>
+        </div>
+
+        <button class="btn-volver" onclick="location.href='nuevaReserva.html'">
+            <span>←</span> Volver a actividades
+        </button>
+    </div>
+
+    <footer>
+        <address >
+            <p>VISITANOS EN:</p>
+            <p>Calle Deporte S/N</p>
+            <p>Atarfe, Granada</p>
+            <p><a href="https://maps.app.goo.gl/YENijyQXo9Ayx89B7" target="_blank" style="color: #5D9CEC; text-decoration: none;">📍 Ver en Google Maps</a></p>
+        </address>
+
+        <div class="footer-centro">
+            <p>&copy; 2026 CodeCenter. Todos los derechos reservados.</p>
+        </div>
+
+        <div class="footer-redes">
+            <img src="img/facebook.png" alt="FB">
+            <img src="img/instagram.png" alt="IG">
+            <img src="img/twiter.png" alt="TW">
+            <img src="img/telegram.png"  alt="TG">
+            <img src="img/whatsapp.png" alt="WA">
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
+    <script src="js/reservas.js"></script>
+
+    
+</body>
+
+</html>
