@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área de Usuario</title>
+    <link rel="stylesheet" href="css/perfil.css">
+</head>
+<body>
+
+    <div class="perfil-container">
+        <h1>Mi Perfil</h1>
+        <p class="subtitulo">Actualiza tu información personal</p>
+
+        <form class="perfil-form">
+            <div class="input-group">
+                <label for="usuario">Nombre de usuario</label>
+                <input type="text" id="usuario" placeholder="Tu nombre de usuario">
+            </div>
+
+            <div class="input-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" placeholder="correo@ejemplo.com">
+            </div>
+
+            <div class="input-group">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" placeholder="+34 600 000 000">
+            </div>
+
+            <div class="input-group">
+                <label for="direccion">Dirección</label>
+                <input type="text" id="direccion" placeholder="Tu dirección">
+            </div>
+
+            <div class="input-group">
+                <label for="password">Nueva contraseña</label>
+                <input type="password" id="password" placeholder="********">
+            </div>
+
+            <button type="submit"><a href="Indice.html">Guardar cambios</a></button>
+        </form>
+    </div>
+<script>
+  const usuario = JSON.parse(localStorage.getItem('usuario') || '{}');
+  
+  // Mostrar nombre en cualquier elemento
+  document.getElementById('nombre-usuario').textContent = usuario.username || 'Invitado';
+  document.getElementById('email-usuario').textContent = usuario.email || '';
+</script>
+</body>
+</html>
