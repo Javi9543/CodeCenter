@@ -1,0 +1,296 @@
+/* --- Menú superior --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #191e29;
+  padding: 0.5rem 5%;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 70px;
+  display: block;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+}
+
+.usuario-logeado {
+  margin-left: 21vw;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #191e29;
+  border-bottom: solid 3px #5D9CEC;   
+  padding: 0.5rem 5%;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-menu a:hover {
+  color: grey;
+}
+
+body {
+  margin: 0;
+  background-color: #154b7e;
+  font-family: Arial, sans-serif;
+}
+
+.contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 60px;
+  padding: 100px 8%;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.tarjeta {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-top: 3px solid #01c38d;
+  border-radius: 10px;
+  padding: 36px 32px;
+  flex: 1;
+  max-width: 600px;
+  box-sizing: border-box;
+}
+
+.tarjeta.info {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  width: 600px;
+}
+
+.tarjeta.info img {
+  display: block;
+  width: 130px;
+  margin: 0 auto 20px auto;
+}
+
+h2 {
+  color: #01c38d;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+}
+
+label {
+  display: block;
+  color: #01c38d;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.campo {
+  display: flex;
+  align-items: center;
+  background-color: #0f3460;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 0 14px;
+  margin-bottom: 16px;
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 0.95rem;
+  padding: 11px 0;
+  outline: none;
+}
+
+.campo select option {
+  background-color: rgba(19, 45, 70, 0.4);
+}
+
+.campo.mensaje {
+  align-items: flex-start;
+  padding: 10px 12px;
+}
+
+.campo textarea {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 0.88rem;
+  outline: none;
+  resize: none;
+  height: 60px;
+}
+
+.campo .material-icons {
+  color: #aaa;
+  font-size: 18px;
+}
+
+.campo:focus-within {
+  border-color: #01c38d;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #01c38d;
+  color: #000000;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ffffff;
+}
+
+.tarjeta.info p {
+  color: #ccc;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+.separador {
+  border-top: 1px solid #1e3d5a;
+  margin: 18px 0;
+}
+
+.datos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.dato {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.dato .material-icons {
+  color: #01c38d;
+  font-size: 16px;
+  margin-top: 2px;
+}
+
+.dato-label {
+  color: #aaa;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.dato-valor {
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+.redes-label {
+  color: #aaa;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.redes {
+  display: flex;
+  gap: 16px;
+}
+
+.redes a {
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.redes a:hover {
+  opacity: 1;
+}
+
+.redes a i {
+  font-size: 28px;
+  color: #01c38d;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #191e29;
+    color: white;
+    padding: 30px 5%;
+    display: flex; /* Activamos el modo flexible */
+    justify-content: space-between; /* Uno a cada punta y otro al centro */
+    align-items: center; /* Centrados verticalmente entre sí */
+    border-top: 1px solid #2c3e50;
+}
+ 
+/* 1. Bloque Dirección */
+footer address{
+    font-style: normal; /* Para que el texto de address no salga en cursiva */
+    flex: 1; /* Ocupa 1 parte del espacio */
+    text-align: center;
+}
+ 
+address p {
+    margin: 5px 0;
+}
+ 
+/* 2. Bloque Centro (Copyright) */
+.footer-centro {
+    flex: 1;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+ 
+/* 3. Bloque Redes (Derecha) */
+.footer-redes {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* Empuja los iconos a la derecha del todo */
+    gap: 15px; /* Espacio entre iconos */
+}
+ 
+.footer-redes img {
+    width: 25px; /* Tamaño de los iconos */
+    height: 25px;
+    filter: brightness(0) invert(1); /* Truco: pone los iconos negros en blanco */
+    transition: transform 0.3s ease;
+}
+ 
+.footer-redes img:hover {
+    transform: scale(1.2); /* Se agrandan un poquito al pasar el ratón */
+}
+ 
+/* El enlace del mail en azulito como tus tarjetas */
+.footer-contacto a {
+    color: #5D9CEC;
+    text-decoration: none;
+}
+ 
+/* Responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}

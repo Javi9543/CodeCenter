@@ -1,0 +1,184 @@
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: #f5f2ec;
+  color: #1a1a18;
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1a1a18;
+  padding: 1em 2em;
+}
+
+.banner-container {
+  position: relative;
+  width: 100%;
+  height: 500px; /* O vh para pantalla completa */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+/* El contenedor principal limita el área visible */
+.carrusel {
+  width: 300%;
+  max-width: 1000px; /* Ajusta según tu diseño */
+  margin: 0 auto;
+  overflow: hidden; /* Esconde las fotos que no están en pantalla */
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* El contenedor de las fotos se mueve de derecha a izquierda */
+.carrusel-fotos {
+  display: flex;
+  width: 300%; /* 100% por cada una de tus 3 imágenes */
+  animation: carrusel-automatico 12s infinite ease-in-out;
+}
+
+/* Estilo para las imágenes */
+.carrusel-fotos img {
+  width: 33.333%; /* Cada imagen ocupa un tercio del contenedor padre (300%) */
+  object-fit: cover;
+  height: 700px; /* Puedes ajustar la altura a tu gusto */
+}
+
+/* La magia: Animación por fotogramas */
+@keyframes carrusel-automatico {
+  /* Imagen 1 */
+  0%, 25% { transform: translateX(0); }
+  
+  /* Transición a Imagen 2 */
+  33%, 58% { transform: translateX(-33.333%); }
+  
+  /* Transición a Imagen 3 */
+  66%, 91% { transform: translateX(-66.666%); }
+  
+  /* Regreso al inicio */
+  100% { transform: translateX(0); }
+}
+
+.logo { 
+  height: 55px;          
+  width: auto;
+  display: block;
+}
+
+.logo span {
+  color: #e84c2b;
+}
+
+.nav-nav {
+  display: flex;
+  gap: 1.5em;
+  list-style: none;
+}
+
+.nav-nav li {
+  display: flex;
+  align-items: center;
+}
+
+nav img {
+  height: 15em;    
+  display: block;
+  margin-right: 40em;
+}
+
+.nav-links a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+.btn-inscribete {
+  background: #e84c2b;
+  color: white;
+  border: none;
+  padding: 0.5em 1em;
+  font-size: 30px;
+}
+
+main {
+  padding: 2em;
+}
+
+.banner-promo {
+  background: #1a1a18;
+  color: white;
+  padding: 2em;
+  margin-bottom: 1rem;
+}
+
+.banner-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 2rem;
+}
+
+.banner-title em {
+  color: #e84c2b;
+  font-style: normal;
+}
+
+
+.campamentos {
+  background: #e84c2b;
+  color: white;
+  padding: 2em;
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-informate {
+  background: white;
+  color: #e84c2b;
+  border: none;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+
+.horario-section {
+  background: white;
+  padding: 2rem;
+}
+
+.horario-tabla-wrapper { overflow-x: auto; }
+
+.horario-tabla { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+
+.horario-tabla th {
+  background: #1a1a18;
+  color: white;
+  padding: 10px 8px;
+  text-align: center;
+}
+
+.horario-tabla td {
+  padding: 8px 6px;
+  text-align: center;
+  border-bottom: 1px solid #ebe8e0;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.horario-tabla td.futbol      { background: #DBEAFE; color: #1e3a8a; }
+.horario-tabla td.basket      { background: #FAECE7; color: #712B13; }
+.horario-tabla td.padel       { background: #E1F5EE; color: #085041; }
+.horario-tabla td.tenis       { background: #EEEDFE; color: #3C3489; }
+.horario-tabla td.voley       { background: #FBEAF0; color: #72243E; }
+.horario-tabla td.atletismo   { background: #FAEEDA; color: #633806; }
+.horario-tabla td.natacion    { background: #EAF3DE; color: #27500A; }
+.horario-tabla td.musculacion { background: #e8e7e4; color: #2C2C2A; }
