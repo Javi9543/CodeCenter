@@ -1,0 +1,15 @@
+
+services:
+  frontend:
+    build: ./frontend
+    container_name: web_frontend
+    ports:
+      - "80:80"
+    volumes:
+      - ./frontend:/usr/share/nginx/html
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
