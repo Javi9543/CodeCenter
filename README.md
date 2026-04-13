@@ -1,6 +1,6 @@
 #  README - CodeCenter
 
-
+    
 
 
 ## **¿Que he hecho?**
@@ -11,8 +11,7 @@
 * **3. Promoción:**  Junto al carrusel, he implementado una promoción (Oferta especial) junto a un botón de inscribirse.
 
 * **4. Información del Centro:** Debajo de el carrusel, información con otro botón sobre CodeCenter
-* **5. Sistema de Horarios:** Por último un horario con sus actividades
+* **5. Sistema de Horarios:** Por último un horario con las actividades del centro, usando Tr y td 
 
   
 * **6 Configuración de Perfil:** Nueva Página que permite configurar los datos del usuario como la contraseña, email, telefono... y por último ponemos la opción para poder guardar la configuración
-
