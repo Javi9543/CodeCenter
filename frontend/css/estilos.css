@@ -28,10 +28,9 @@
     display: flex;
     justify-content: space-between; /* Título a la izquierda, buscador a la derecha */
     align-items: center;
-    max-width: 1200px;
-    margin: 40px auto 20px auto;
-    padding: 0;
-    width: 90%;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    gap:20px;
 }
 
 /* Título más elegante */

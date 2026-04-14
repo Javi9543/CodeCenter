@@ -14,6 +14,8 @@ body {
   background-color: #e4e3e3;
 }
 
+
+
 .contenedor {
   display: flex;
   justify-content: center;
@@ -22,6 +24,21 @@ body {
   padding: 100px 8%;
   min-height: 100vh;
   box-sizing: border-box;
+}
+
+/* Estilo del botón hamburguesa */
+.menu-toggle {
+    display: none; /* Se oculta en PC */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
 }
 
 /* --- Menú superior --- */
@@ -127,10 +144,41 @@ address p {
     text-decoration: none;
 }
 
-/* Responsive para pantallas pequeñas */
-@media (max-width: 768px) {
-    .footer-content {
+@media (max-width: 1024px) {
+    .menu-toggle {
+        display: flex; /* Aparecen las rayitas en móvil */
+    }
+
+    .nav-menu {
+        display: none; /* Escondemos el menú normal */
         flex-direction: column;
+        background-color: #191e29;
+        position: absolute;
+        top: 70px; /* Justo debajo del nav */
+        left: 0;
+        width: 100%;
+        padding: 20px 0;
         text-align: center;
+        z-index: 999;
+    }
+
+    /* Cuando el JS añade la clase 'active', el menú aparece */
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .usuario-logeado {
+        margin-left: 0; /* Quitamos el hueco de 21vw en móvil */
+        margin-top: 10px;
+    }
+
+    footer {
+        flex-direction: column; /* Apila los elementos uno debajo de otro */
+        gap: 20px;
+        text-align: center;
+    }
+
+    .footer-redes {
+        justify-content: center; /* Centra los iconos en móvil */
     }
 }

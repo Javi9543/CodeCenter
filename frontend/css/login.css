@@ -1,24 +1,14 @@
-
-
 .tarjeta {
   background-color: #132d46;
   border-top: 3px solid #01c38d;
   border-radius: 10px;
-  padding: 40px 35px;
-  width: 360px;
+  padding: 25px 30px;      
+  width: 90%;
+  max-width: 420px;        
+  box-sizing: border-box;
+  margin: auto;            
 }
 
-.tarjeta img {
-  display: block;
-  margin: 0 auto 20px auto;
-  width: 150px;
-}
-
-h2 {
-  text-align: center;
-  color: #01c38d;
-  margin-bottom: 24px;
-}
 
 label {
   display: block;

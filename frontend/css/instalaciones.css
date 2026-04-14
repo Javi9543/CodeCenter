@@ -25,6 +25,38 @@
   margin-bottom: 32px;
   max-width: 480px;
 }
+@media (max-width: 768px) {
+    .hero {
+        padding: 60px 5%; /* Reducimos el padding lateral para ganar espacio */
+        min-height: 400px; /* Un poco más bajo en móvil */
+        justify-content: center;
+        text-align: center;
+        background-image: none; /* Quitamos el degradado para que se vea bien el fondo */
+        background-color: #0f1923; 
+    }
+
+    .hero-texto h1 {
+        font-size: 2.5rem; /* ¡CLAVE! Bajamos de 4rem a 2.5rem para que no sobresalga */
+        line-height: 1.2;
+    }
+
+    .hero-texto p {
+        font-size: 1rem;
+        margin: 0 auto 30px auto; /* Centramos el párrafo */
+    }
+
+    /* Opcional: Centrar el botón en móvil */
+    .btn-verde {
+        display: inline-block;
+    }
+}
+
+/* Arreglo extra para pantallas MUY pequeñas (iPhone SE, etc.) */
+@media (max-width: 380px) {
+    .hero-texto h1 {
+        font-size: 2rem;
+    }
+}
 
 .btn-verde {
   background-color: #01c38d;
