@@ -1,49 +1,4 @@
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #191e29;
-    border-bottom: solid 3px #5D9CEC;   
-    padding: 0.5rem 5%;
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
 
-.logo img {
-    height: 70px;
-    display: block;
-}
-
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-    margin: 0;
-}
-
-.nav-menu a {
-    text-decoration: none;
-    cursor: pointer;
-    font-weight: 500;
-    transition: color 0.3s;
-    font-size: 1.25rem;
-    color:white;
-    letter-spacing: 2px;
-    display: block;
-    position: relative;
-    z-index: 10;
-}
- 
-.nav-menu a:hover {
-    color: grey;
-}
-
-
-body {
-    background-color: #154b7e;
-}
 
 h1{
     color: #FFFFFF;
@@ -74,59 +29,6 @@ h1{
     text-transform: uppercase;
 }
 
-footer {
-    background-color: #191e29;
-    color: white;
-    padding: 30px 5%;
-    display: flex; /* Activamos el modo flexible */
-    justify-content: space-between; /* Uno a cada punta y otro al centro */
-    align-items: center; /* Centrados verticalmente entre sí */
-    border-top: 1px solid #2c3e50;
-}
- 
-/* 1. Bloque Dirección */
-footer address{
-    font-style: normal; /* Para que el texto de address no salga en cursiva */
-    flex: 1; /* Ocupa 1 parte del espacio */
-    text-align: center;
-}
- 
-address p {
-    margin: 5px 0;
-}
- 
-/* 2. Bloque Centro (Copyright) */
-.footer-centro {
-    flex: 1;
-    text-align: center;
-    font-size: 0.9rem;
-    opacity: 0.8;
-}
- 
-/* 3. Bloque Redes (Derecha) */
-.footer-redes {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end; /* Empuja los iconos a la derecha del todo */
-    gap: 15px; /* Espacio entre iconos */
-}
- 
-.footer-redes img {
-    width: 25px; /* Tamaño de los iconos */
-    height: 25px;
-    filter: brightness(0) invert(1); /* Truco: pone los iconos negros en blanco */
-    transition: transform 0.3s ease;
-}
- 
-.footer-redes img:hover {
-    transform: scale(1.2); /* Se agrandan un poquito al pasar el ratón */
-}
- 
-/* El enlace del mail en azulito como tus tarjetas */
-.footer-contacto a {
-    color: #5D9CEC;
-    text-decoration: none;
-}
  
 /* Responsive para pantallas pequeñas */
 @media (max-width: 768px) {

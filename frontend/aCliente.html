@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Área de Usuario</title>
-    <link rel="stylesheet" href="./css/aCliente.css">
+    <link rel="stylesheet" href="css/aCliente.css">
+    <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
+
+    <header data-nav="general"></header>
 
     <div class="perfil-container">
         <h1>Mi Perfil</h1>
@@ -48,5 +51,9 @@
   document.getElementById('nombre-usuario').textContent = usuario.username || 'Invitado';
   document.getElementById('email-usuario').textContent = usuario.email || '';
 </script>
+<footer></footer>
+
+<script src="js/componentes.js"></script>
+
 </body>
 </html>

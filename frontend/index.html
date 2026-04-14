@@ -3,189 +3,143 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/global.css">
   <title>CodeCenter</title>
 
 </head>
+
 <body>
 
-  <nav class="navbar">
-
-        <div class="logo">
-            <img src="img/logo.png">
-        </div>
-
-        <ul class="nav-menu">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="instalaciones.html">Instalaciones</a></li>
-            <li><a href="horario.html">Horario</a></li>
-            <li><a href="cuotas.html">Cuotas</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-            <li><a href="login.html">Area clientes</a></li>
-        </ul>
-
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </nav>
-  <nav>
+  <header data-nav="general"></header>
     
-<span></span>
 
-<span></span>
+    <main>
 
-<span></span>
+  <section class="banner-promo">
 
-</div>
-
-</nav>
-  </nav>
-
-  <main>
-
-<section class="banner-promo">
-
-  <div class="banner-left">
-    <div class="banner-container">
-      <div class="carrusel">
-        <div class="carrusel-fotos">
-          <img src="imagenes/banner1.png" alt="Descripción 1">
-          <img src="imagenes/banner3.png" alt="Descripción 2">
-          <img src="imagenes/banner2.png" alt="Descripción 3">
+    <div class="banner-left">
+      <div class="banner-container">
+        <div class="carrusel">
+          <div class="carrusel-fotos">
+            <img src="imagenes/banner1.png" alt="Descripción 1">
+            <img src="imagenes/banner3.png" alt="Descripción 2">
+            <img src="imagenes/banner2.png" alt="Descripción 3">
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="banner-right">
-    <span class="banner-tag">¡Oferta especial!</span>
-    <h1 class="banner-title">Tu mejor<br>versión<br>empieza aquí.</h1>
-    <button class="btn-inscribete"><a href ="login.html">¡Inscríbete! </a></button>
-  </div>
+    <div class="banner-right">
+      <span class="banner-tag">¡Oferta especial!</span>
+      <h1 class="banner-title">Tu mejor<br>versión<br>empieza aquí.</h1>
+      <button class="btn-inscribete"><a href ="login.html">¡Inscríbete! </a></button>
+    </div>
 
-</section>
+  </section>
 
-</section>
+  <section class="campamentos">
+    <div>
+      <p class="camp-label">Nuevo Verano, Nueva Diversión</p>
+      <h2 class="camp-title">Campamentos<br/>de Verano</h2>
+    </div>
+    <button class="btn-informate"><a href="instalaciones.html">Infórmate -></a> </button>
+  </section>    
 
-    <section class="campamentos">
-      <div>
-        <p class="camp-label">Nuevo Verano, Nueva Diversión</p>
-        <h2 class="camp-title">Campamentos<br/>de Verano</h2>
-      </div>
-      <button class="btn-informate"><a href="instalaciones.html">Infórmate -></a> </button>
-    </section>
-
-    <section class="horario-section">
-      <div class="horario-header">
+  <section class="horario-section">
+    <div class="horario-header">
         <h2>Horario</h2>
-      </div>
-      <section class="horario-section">
-  <div class="horario-tabla-wrapper">
-    <table class="horario-tabla">
-      <thead>
-        <tr>
-          <th>Hora</th>
-          <th>Lunes</th>
-          <th>Martes</th>
-          <th>Miércoles</th>
-          <th>Jueves</th>
-          <th>Viernes</th>
-          <th>Sábado</th>
-          <th>Domingo</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="hora">08:15</td>
-          <td class="natacion">Natación</td>
-          <td class="musculacion">Musculación</td>
-          <td class="natacion">Natación</td>
-          <td class="musculacion">Musculación</td>
-          <td class="natacion">Natación</td>
-          <td class="musculacion">Fútbol</td>
-          <td class="natacion">Tennis/padel</td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <td class="hora">10:00</td>
-          <td class="natacion">Voley</td>
-          <td class="musculacion">Fútbol</td>
-          <td class="natacion">Basket</td>
-          <td class="musculacion">Atletismo</td>
-          <td class="natacion">Musculación</td>
-          <td class="musculacion">Volley</td>
-          <td class="natacion">Fútbol</td>
-          <td></td>
-        </tr>
-
-           <tr>
-          <td class="hora">11:15</td>
-          <td class="natacion"></td>
-          <td class="musculacion"></td>
-          <td class="natacion"></td>
-          <td class="musculacion">Descanso</td>
-          <td class="natacion"></td>
-          <td class="musculacion"></td>
-          <td class="natacion"></td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <td class="hora">11:45</td>
-          <td class="natacion">Musculación</td>
-          <td class="musculacion">Basket</td>
-          <td class="natacion">Tenis/Padel</td>
-          <td class="musculacion">Fútbol</td>
-          <td class="natacion">Volley</td>
-          <td class="musculacion">Musculación</td>
-          <td class="natacion">Natación</td>
-          <td></td>
-        </tr>
-
-           <tr>
-          <td class="hora">13:45</td>
-          <td class="natacion">Fútbol</td>
-          <td class="musculacion">Volley</td>
-          <td class="natacion">Atletismo</td>
-          <td class="musculacion"></td>
-          <td class="natacion">Tenis/Padel</td>
-          <td class="musculacion">Natación</td>
-          <td class="natacion">Musculación</td>
-          <td></td>
-        </tr>
-        
-      </tbody>
-    </table>
-  </div>
-</section>
-      <div class="horario-futbol">
-     </div>
+    </div>
+    <section class="horario-section">
     
+          <div class="horario-tabla-wrapper">
+      <table class="horario-tabla">
+        <thead>
+          <tr>
+            <th>Hora</th>
+            <th>Lunes</th>
+            <th>Martes</th>
+            <th>Miércoles</th>
+            <th>Jueves</th>
+            <th>Viernes</th>
+            <th>Sábado</th>
+            <th>Domingo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="hora">08:15</td>
+            <td class="natacion">Natación</td>
+            <td class="musculacion">Musculación</td>
+            <td class="natacion">Natación</td>
+            <td class="musculacion">Musculación</td>
+            <td class="natacion">Natación</td>
+            <td class="musculacion">Fútbol</td>
+            <td class="natacion">Tennis/padel</td>
+            <td></td>
+          </tr>
 
-  </main>
+          <tr>
+            <td class="hora">10:00</td>
+            <td class="natacion">Voley</td>
+            <td class="musculacion">Fútbol</td>
+            <td class="natacion">Basket</td>
+            <td class="musculacion">Atletismo</td>
+            <td class="natacion">Musculación</td>
+            <td class="musculacion">Volley</td>
+            <td class="natacion">Fútbol</td>
+            <td></td>
+          </tr>
 
-  <footer>
-        <address >
-            <p>VISITANOS EN:</p>
-            <p>Calle Deporte S/N</p>
-            <p>Atarfe, Granada</p>
-            <p><a href="https://maps.app.goo.gl/YENijyQXo9Ayx89B7" target="_blank" style="color: #5D9CEC; text-decoration: none;">📍 Ver en Google Maps</a></p>
-        </address>
+            <tr>
+            <td class="hora">11:15</td>
+            <td class="natacion"></td>
+            <td class="musculacion"></td>
+            <td class="natacion"></td>
+            <td class="musculacion">Descanso</td>
+            <td class="natacion"></td>
+            <td class="musculacion"></td>
+            <td class="natacion"></td>
+            <td></td>
+          </tr>
 
-        <div class="footer-centro">
-            <p>&copy; 2026 CodeCenter. Todos los derechos reservados.</p>
-        </div>
+          <tr>
+            <td class="hora">11:45</td>
+            <td class="natacion">Musculación</td>
+            <td class="musculacion">Basket</td>
+            <td class="natacion">Tenis/Padel</td>
+            <td class="musculacion">Fútbol</td>
+            <td class="natacion">Volley</td>
+            <td class="musculacion">Musculación</td>
+            <td class="natacion">Natación</td>
+            <td></td>
+          </tr>
 
-        <div class="footer-redes">
-            <img src="img/facebook.png" alt="FB">
-            <img src="img/instagram.png" alt="IG">
-            <img src="img/twiter.png" alt="TW">
-            <img src="img/telegram.png"  alt="TG">
-            <img src="img/whatsapp.png" alt="WA">
-        </div>
-    </footer>
+            <tr>
+            <td class="hora">13:45</td>
+            <td class="natacion">Fútbol</td>
+            <td class="musculacion">Volley</td>
+            <td class="natacion">Atletismo</td>
+            <td class="musculacion"></td>
+            <td class="natacion">Tenis/Padel</td>
+            <td class="musculacion">Natación</td>
+            <td class="natacion">Musculación</td>
+            <td></td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </section>
+        <div class="horario-futbol">
+      </div>
+      */
+
+    </main>
+
+  <footer></footer>
+
+  <script src="js/componentes.js"></script>
+
 </body>
 </html>

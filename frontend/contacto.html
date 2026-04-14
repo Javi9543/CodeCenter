@@ -4,29 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contacto</title>
-  <link rel="stylesheet" href="./css/contacto.css">
+  <link rel="stylesheet" href="css/contacto.css">
+  <link rel="stylesheet" href="css/global.css">
+
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-  <nav class="navbar">
-    <div class="logo">
-      <img src="/img/logo.png">
-    </div>
-    <ul class="nav-menu">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="horario.html">Horario</a></li>
-      <li><a href="reservas.html">Mis Reservas</a></li>
-      <li><a href="nuevaReserva.html">Nueva Reserva</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-      <li><a href="instalaciones.html">Instalaciones</a></li>
-
-      <li class="usuario-logeado">
-        <a href="perfil.html"><span class="icono-user">👤</span> Hola, Juan Pérez</a>
-      </li>
-    </ul>
-  </nav>
+  <header data-nav="general"></header>
 
   <div class="contenedor">
 
@@ -75,8 +61,6 @@
 
     <!-- CUADRO DERECHA: INFO -->
     <div class="tarjeta info">
-
-      <img src="/img/logo.png" alt="CodeCenter">
 
       <h2>¿Podemos ayudarte?</h2>
 
@@ -135,26 +119,9 @@
 
   </div>
 
+  <footer></footer>
 
-  <footer>
-        <address >
-            <p>VISITANOS EN:</p>
-            <p>Calle Deporte S/N</p>
-            <p>Atarfe, Granada</p>
-            <p>aqui pondre enlace google maps</p>
-        </address>
- 
-        <div class="footer-centro">
-            <p>&copy; 2026 CodeCenter. Todos los derechos reservados.</p>
-        </div>
- 
-        <div class="footer-redes">
-            <img src="img/facebook.png" alt="FB">
-            <img src="img/instagram.png" alt="IG">
-            <img src="img/twiter.png" alt="TW">
-            <img src="img/telegram.png"  alt="TG">
-            <img src="img/whatsapp.png" alt="WA">
-        </div>
-    </footer>
+  <script src="js/componentes.js"></script>
+  
 </body>
 </html>
