@@ -1,15 +1,53 @@
+/* --- BODY --- */
+body {
+  margin: 0;
+  background-color: #154b7e;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- CONTENEDOR --- */
+.contenedor {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* --- TARJETA --- */
 .tarjeta {
   background-color: #132d46;
   border-top: 3px solid #01c38d;
   border-radius: 10px;
-  padding: 25px 30px;      
+  padding: 25px 30px;
   width: 90%;
-  max-width: 420px;        
+  max-width: 420px;
   box-sizing: border-box;
-  margin: auto;            
+  align-self: center;   /* centra sin estirar */
+  flex-grow: 0;         /* no crece */
+  flex-shrink: 0;       /* no encoge */
 }
 
+/* --- TÍTULO --- */
+h2 {
+  color: #01c38d;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
 
+/* --- LABELS --- */
 label {
   display: block;
   color: #01c38d;
@@ -18,6 +56,7 @@ label {
   margin-bottom: 5px;
 }
 
+/* --- CAMPOS --- */
 .campo {
   display: flex;
   align-items: center;
@@ -47,6 +86,7 @@ label {
   border-color: #01c38d;
 }
 
+/* --- FILA RECUÉRDAME --- */
 .fila {
   display: flex;
   justify-content: space-between;
@@ -70,6 +110,7 @@ label {
   text-decoration: none;
 }
 
+/* --- BOTÓN --- */
 button {
   width: 100%;
   padding: 12px;
@@ -82,10 +123,18 @@ button {
   cursor: pointer;
 }
 
+button a {
+  color: #000000;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
+
 button:hover {
   background-color: #ffffff;
 }
 
+/* --- TEXTO INFERIOR --- */
 p {
   text-align: center;
   margin-top: 16px;
@@ -98,10 +147,67 @@ p a {
   text-decoration: none;
 }
 
+/* --- FOOTER --- */
+footer {
+  background-color: #191e29;
+  color: white;
+  padding: 30px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #2c3e50;
+  flex-shrink: 0;
+}
 
+footer address {
+  font-style: normal;
+  flex: 1;
+  text-align: center;
+}
+
+.footer-centro {
+  flex: 1;
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.footer-redes {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.footer-redes img {
+  width: 25px;
+  height: 25px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease;
+}
+
+.footer-redes img:hover {
+  transform: scale(1.2);
+}
+
+.footer-contacto a {
+  color: #5D9CEC;
+  text-decoration: none;
+}
+
+/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
-  .footer-content {
+  .contenedor {
+    padding: 30px 20px;
+  }
+
+  footer {
     flex-direction: column;
+    gap: 15px;
     text-align: center;
+  }
+
+  .footer-redes {
+    justify-content: center;
   }
 }
