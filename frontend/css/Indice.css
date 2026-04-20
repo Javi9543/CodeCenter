@@ -1,0 +1,243 @@
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: #191E29;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+nav {
+  display: block;
+  position: relative;
+  z-index: 10;
+  color: white;
+}
+
+nav img {
+  height: clamp(80px, 15vw, 150px);
+  display: block;
+  margin: 0 auto;
+  max-width: 90%;
+}
+
+.logo {
+  height: 55px;
+  width: auto;
+  display: block;
+  color: #01C38D;
+}
+
+.nav-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5em;
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  font-size: 19px;
+  text-transform: uppercase;
+}
+
+.nav-nav li {
+  display: flex;
+  align-items: center;
+  color: #01C38D;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.nav-nav li:hover {
+  color: white;
+}
+
+.banner-promo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background: #132D46;
+  padding: 20px;
+  gap: 20px;
+}
+
+.banner-left,
+.banner-right {
+  flex: 1 1 400px;
+}
+
+.banner-container {
+  width: 100%;
+}
+
+.carrusel {
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  margin: auto;
+}
+
+.carrusel-fotos {
+  display: flex;
+  width: 300%;
+  height: 100%;
+  animation: carrusel-automatico 12s infinite ease-in-out;
+}
+
+.carrusel-fotos img {
+  width: 33.333%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Animación */
+@keyframes carrusel-automatico {
+  0%, 25% { transform: translateX(0); }
+  33%, 58% { transform: translateX(-33.333%); }
+  66%, 91% { transform: translateX(-66.666%); }
+  100% { transform: translateX(0); }
+}
+
+
+.banner-tag {
+color: white;
+font-size: 40px;
+}
+.camp-label,
+.camp-title,
+.horario-header,
+.footer-site {
+  font-size: 40px;
+}
+
+.banner-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 40px;
+  color: white;
+}
+
+.banner-title em {
+  color: #e84c2b;
+  font-style: normal;
+}
+
+.banner-sub {
+  color: white;
+  font-size: 40px;
+  text-align: center;
+}
+
+.btn-inscribete,
+.btn-informate {
+ font-size: 40px;;
+  padding: 10px 20px;
+  width: auto;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-inscribete {
+  background: #e84c2b;
+  color: white;
+}
+
+.btn-informate {
+  background: white;
+  color: #e84c2b;
+}
+
+.campamentos {
+  background: #e84c2b;
+  color: white;
+  padding: 2em;
+  margin-bottom: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+}
+
+.horario-section {
+  background: #01C38D;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.horario-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: clamp(14px, 2vw, 18px);
+  min-width: 700px;
+}
+
+.horario-tabla th {
+  background: #1a1a18;
+  color: white;
+  padding: 10px 8px;
+  text-align: center;
+}
+
+.horario-tabla td {
+  padding: 8px 6px;
+  text-align: center;
+  border-bottom: 1px solid #ebe8e0;
+  font-weight: 600;
+}
+
+.hora        { background: whitesmoke; color: #1e3a8a; }
+.futbol      { background: #DBEAFE; color: #1e3a8a; }
+.basket      { background: #FAECE7; color: #712B13; }
+.padel       { background: #E1F5EE; color: #085041; }
+.tenis       { background: #EEEDFE; color: #3C3489; }
+.voley       { background: #FBEAF0; color: #72243E; }
+.atletismo   { background: #FAEEDA; color: #633806; }
+.natacion    { background: #EAF3DE; color: #27500A; }
+.musculacion { background: #e8e7e4; color: #2C2C2A; }
+
+
+.footer-site {
+  background-color: #191e29;
+  color: white;
+  padding: 30px 5%;
+  margin-top: 50px;
+  border-top: 3px solid #5D9CEC;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.footer-section p {
+  font-size: clamp(16px, 2vw, 24px);
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .banner-promo,
+  .campamentos {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-nav {
+    font-size: 18px;
+    gap: 1em;
+  }
+
+  .horario-tabla {
+    min-width: 600px;
+  }
+}
