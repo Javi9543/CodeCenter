@@ -13,7 +13,7 @@ he creado los archivos base del Frontend configurados para poder trabajar en loc
 
 index.html: El contenido de la web simulando "pagina en obras", para comprobar que funciona.
 
-![](4.png)
+![](./img/4.png)
 
 default.conf: Las reglas del servidor.
 
@@ -22,11 +22,11 @@ le dice a nginsx que hacer cuando alguien escribe localhost en el navegador.
 
 Aqui es donde mas adelante se unira el frontend con el backend.
 
-![](2.png)
+![](./img/2.png)
 
 Dockerfile: Las instrucciones para montar la imagen del servidor.
 
-![](1.png)
+![](./img/1.png)
 
 docker-compose.yml: El mando a distancia para encenderlo todo. 
 
@@ -38,7 +38,7 @@ docker-compose.yml: El mando a distancia para encenderlo todo.
 5. la red app-network: es una red privada virtual.
 
 
-![](3.png)
+![](./3.png)
 
 he conectado la carpeta local con github
 
