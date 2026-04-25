@@ -28,9 +28,31 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('selector-horas').style.display = 'block';
             // 2. Escribimos la fecha seleccionada
             document.getElementById('fecha-elegida').innerText = dateStr;
+
+            const contendorLista = document.querySelector('.grid-horas');
+            contendorLista.innerHTML = "Buscando horarios...";
             
             console.log("Buscando disponibilidad para " + dateStr);
-        }
+
+            fetch(`http://localhost/disponibilidad?deporte=${deporteSeleccionado}&fecha=${dateStr}`)
+                .then(response => response.json())
+                .then(data => {
+                    contendorLista.innerHTML = "";
+
+                    if(data.horas && data.horas.length > 0) {
+                        data.horas.forEach(hora => {
+                            const infoHora = document.createElement('p');
+                            infoHora.innerText = "· " + hora;
+                            infoHora.style.margin = "5px 0";
+                            infoHora.style.fontWeight = "500";
+                            contendorLista.appendChild(infoHora);
+                        });
+                    } else {
+                        contendorLista.innerHTML = "<p>No hay horarios disponibles</p>";
+                    }
+                });
+                
+        } 
 
         
     });
