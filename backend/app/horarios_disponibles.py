@@ -1,5 +1,3 @@
-from pyexpat import model
-from sqlalchemy import true
 from sqlalchemy.orm import Session
 from app import models
 

@@ -9,6 +9,7 @@ iniciar sesión, obtener datos del usuario, etc.
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
+from sqlalchemy import inspect, text
 from pydantic import BaseModel
 import hashlib
  
@@ -19,6 +20,20 @@ from app.horarios_disponibles import registraReserva
 # --- INICIALIZACIÓN ---
 # Esto crea las tablas en la BD si no existen todavía
 Base.metadata.create_all(bind=engine)
+
+# Compatibilidad: asegurar columna usuario_id para reservas.
+def asegurar_columna_usuario_id():
+    inspector = inspect(engine)
+    tablas = inspector.get_table_names()
+    if "reservas" not in tablas:
+        return
+
+    columnas = {col["name"] for col in inspector.get_columns("reservas")}
+    if "usuario_id" not in columnas:
+        with engine.begin() as conn:
+            conn.execute(text("ALTER TABLE reservas ADD COLUMN usuario_id INTEGER NOT NULL DEFAULT 0"))
+
+asegurar_columna_usuario_id()
  
 app = FastAPI(title="CodeCenter API", version="1.0")
  
