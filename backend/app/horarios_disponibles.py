@@ -1,15 +1,15 @@
 from pyexpat import model
-from sqlalchemy import Session
+from sqlalchemy.orm import Session
 from app import models
 
 # Horarios Deportes
 HorariosCentro = {
-    "fútbol" : ["17:00 - 18:00", "19:00 - 20:00", "20:00 - 21:00"],
-    "pádel" : ["8:00 -9:00", "10:00 - 11:00", "12:00 - 13:00"]
+    "futbol" : ["17:00 - 18:00", "19:00 - 20:00", "20:00 - 21:00"],
+    "padel" : ["8:00 -9:00", "10:00 - 11:00", "12:00 - 13:00"]
 }
 
 # Con esto se mostrarán las horas libres y ocultará las horas que no estan disponibles
-def horasLibres(db: Session, deporte: str, fecha:str):
+def horasLibres(db, deporte: str, fecha:str):
     deporte_nomb = deporte.lower()
     
     #Comprobar que el deporte seleccionado existe, si no muestra una lista vacia
