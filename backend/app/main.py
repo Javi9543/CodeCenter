@@ -14,7 +14,8 @@ import hashlib
  
 from app.database import engine, get_db, Base
 from app import models
-from app import horarios_disponibles 
+from app.horarios_disponibles import horasLibres
+from app.horarios_disponibles import registraReserva
 # --- INICIALIZACIÓN ---
 # Esto crea las tablas en la BD si no existen todavía
 Base.metadata.create_all(bind=engine)
@@ -239,7 +240,24 @@ def listar_usuarios(db: Session = Depends(get_db)):
 
 @app.get("/disponibilidad")
 def obtener_disponibilidad(deporte: str, fecha: str, db: Session = Depends(get_db)):
-    lista_horas = horarios_disponibles.horasLibres(db, deporte, fecha)
+    lista_horas = horasLibres(db, deporte, fecha)
     
     return {"horas": lista_horas}
  
+class ReservaSchema(BaseModel):
+    deporte: str
+    fecha: str
+    hora: str
+    usuario_nombre: str
+
+@app.post("/Reservar")
+def enviar_reserva(reserva: ReservaSchema, db: Session = Depends(get_db)):
+    exito = registraReserva(
+        db=db, 
+        deporte=reserva.deporte, 
+        fecha=reserva.fecha, 
+        hora=reserva.hora, 
+        usuario=reserva.usuario_nombre
+    )
+    
+    return {"status": "ok", "mensaje": "Reserva enviada a la lógica"}
