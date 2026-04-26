@@ -48,3 +48,4 @@ class Reserva(Base):
     fecha = Column(String, nullable=False)
     hora = Column(String, nullable=False)
     usuario_id = Column(Integer, nullable=False, default=0)
+ 

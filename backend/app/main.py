@@ -35,6 +35,10 @@ def asegurar_columna_usuario_id():
 
 asegurar_columna_usuario_id()
  
+# --- INICIALIZACIÓN ---
+# Esto crea las tablas en la BD si no existen todavía
+Base.metadata.create_all(bind=engine)
+ 
 app = FastAPI(title="CodeCenter API", version="1.0")
  
 # --- CORS ---
@@ -73,7 +77,7 @@ def crear_usuarios_iniciales(db: Session):
                 telefono="600000001",
                 direccion="Calle Deporte S/N, Atarfe",
                 password=hashear_password("ana123"),
-                es_admin=False
+                es_admin=True
             ),
             models.Usuario(
                 nombre="Javier",
@@ -278,3 +282,4 @@ def enviar_reserva(reserva: ReservaSchema, db: Session = Depends(get_db)):
         raise HTTPException(status_code=500, detail="No se pudo guardar la reserva")
 
     return {"status": "ok", "reserva_id": reserva_id, "mensaje": "Reserva guardada"}
+ 
