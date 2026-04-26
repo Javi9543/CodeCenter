@@ -38,4 +38,14 @@ class Usuario(Base):
  
     # True = administrador, False = cliente normal
     es_admin    = Column(Boolean, default=False)
+
+
+class Reserva(Base):
+    __tablename__ = "reservas"
+
+    id = Column(Integer, primary_key=True, index=True)
+    deporte = Column(String, nullable=False)
+    fecha = Column(String, nullable=False)
+    hora = Column(String, nullable=False)
+    usuario_id = Column(Integer, nullable=False, default=0)
  
