@@ -3,7 +3,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     let reservas = [];
 
     try {
-        const res = await fetch('http://localhost:8000/reservas/1');
+        const usuario = JSON.parse(sessionStorage.getItem('usuario'));
+        const idUsuario = usuario ? usuario.id : 1;
+        const res = await fetch(`http://localhost:8000/reservas/${idUsuario}`);
         reservas = await res.json();
     } catch (e) {
         console.error('Error cargando reservas:', e);
@@ -17,14 +19,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     let selReserva = null;
 
     function diasConReserva() {
-        return reservas.filter(r => r.estado === 'activa').map(r => r.fecha);
+        return reservas.map(r => r.fecha);
     }
 
     function renderSeccionCal() {
         const seccion = document.getElementById('contenido-cal');
-        const activas = reservas.filter(r => r.estado === 'activa');
 
-        let aviso = activas.length === 0 ? `
+        let aviso = reservas.length === 0 ? `
             <div class="sin-reservas">
                 <p class="sin-reservas-texto">No tienes ninguna reserva activa.</p>
                 <a href="nuevaReserva.html" class="btn-ir-reservar">Hacer una reserva</a>
@@ -112,12 +113,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         lista.innerHTML = delDia.map(r => `
-            <div class="reserva-item ${r.estado}" data-id="${r.id}">
+            <div class="reserva-item" data-id="${r.id}">
                 <div>
                     <div class="reserva-deporte">${r.deporte}</div>
-                    <div class="reserva-horas">${r.hora_inicio} – ${r.hora_fin}</div>
+                    <div class="reserva-horas">${r.hora}</div>
                 </div>
-                <span class="badge ${r.estado}">${r.estado}</span>
+                <span class="badge activa">activa</span>
             </div>
         `).join('');
 
@@ -136,32 +137,23 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('m-deporte').textContent = selReserva.deporte;
         document.getElementById('m-fecha').textContent = fechaFormateada;
         document.getElementById('m-fecha2').textContent = fechaFormateada;
-        document.getElementById('m-inicio').textContent = selReserva.hora_inicio;
-        document.getElementById('m-fin').textContent = selReserva.hora_fin;
+        document.getElementById('m-inicio').textContent = selReserva.hora;
+        document.getElementById('m-fin').textContent = selReserva.hora;
         document.getElementById('m-dep').textContent = selReserva.deporte;
-        document.getElementById('m-estado').textContent = selReserva.estado.charAt(0).toUpperCase() + selReserva.estado.slice(1);
+        document.getElementById('m-estado').textContent = 'Activa';
 
         const estadoBar = document.getElementById('modal-estado-bar');
-        if (selReserva.estado === 'cancelada') {
-            estadoBar.style.background = '#fee';
-            estadoBar.style.color = '#e74c3c';
-        } else {
-            estadoBar.style.background = '#d4f5e9';
-            estadoBar.style.color = '#01c38d';
-        }
-
-        document.getElementById('btn-cancelar').disabled = selReserva.estado === 'cancelada';
-        document.getElementById('btn-modificar').disabled = selReserva.estado === 'cancelada';
+        estadoBar.style.background = '#d4f5e9';
+        estadoBar.style.color = '#01c38d';
 
         document.getElementById('modal-detalle').style.display = 'flex';
     }
 
     function actualizarResumen() {
-        const activas = reservas.filter(r => r.estado === 'activa');
-        document.getElementById('r-activas').textContent = activas.length;
+        document.getElementById('r-activas').textContent = reservas.length;
 
         const hoy = new Date();
-        const prox = activas
+        const prox = reservas
             .filter(r => new Date(r.fecha) >= hoy)
             .sort((a, b) => new Date(a.fecha) - new Date(b.fecha))[0];
 
@@ -172,7 +164,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             document.getElementById('r-proxima').textContent = '-';
         }
 
-        document.getElementById('r-mes').textContent = activas
+        document.getElementById('r-mes').textContent = reservas
             .filter(r => new Date(r.fecha).getMonth() === hoy.getMonth()).length;
     }
 
@@ -195,7 +187,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             await fetch(`http://localhost:8000/reservas/${selReserva.id}/cancelar`, {
                 method: 'PUT'
             });
-            selReserva.estado = 'cancelada';
+            reservas = reservas.filter(r => r.id !== selReserva.id);
             document.getElementById('modal-confirmar').style.display = 'none';
             if (diaSeleccionado) mostrarDia(diaSeleccionado);
             renderSeccionCal();
@@ -206,7 +198,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('btn-modificar').addEventListener('click', () => {
         if (selReserva) {
             document.getElementById('modal-detalle').style.display = 'none';
-            window.location.href = `nuevaReserva.html?modificar=${selReserva.id}&deporte=${selReserva.deporte}&fecha=${selReserva.fecha}&hora_inicio=${selReserva.hora_inicio}&hora_fin=${selReserva.hora_fin}`;
+            window.location.href = `nuevaReserva.html?deporte=${selReserva.deporte}`;
         }
     });
 
