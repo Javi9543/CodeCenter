@@ -20,6 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
     </nav>`;
 
     // --- NAV CLIENTES ---
+    // al iniciar sesion estan los datos guardados en sessionStorage entonce 
+    // recuperamos los datos, y de todo, coge solo el nombre. 
+    const usuario = JSON.parse(sessionStorage.getItem('usuario') || '{}');
+    const usuarioSesion = usuario.nombre || 'Cliente';
     const navClientes = `
     <nav class="navbar">
         <div class="logo"><img src="img/logo.png"></div>
@@ -32,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <li><a href="nuevaReserva.html">Nueva Reserva</a></li>
             <li class="usuario-logeado">
                 <a href="aClientes.html">
-                    <span class="icono-user">👤</span> Hola, Juan Pérez
+                    <span class="icono-user">👤</span> Hola, ${usuarioSesion}
                 </a>
             </li>
         </ul>          
