@@ -7,6 +7,9 @@ body {
   margin: 0;
   background-color: #154b7e;
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .body-cliente {

@@ -3,50 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Área Clientes</title>
-    <link rel="stylesheet" href="css/perfil.css">
+    <title>Mi Perfil — CodeCenter</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/aClientes.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body>
+<body class="body-cliente">
+ 
+    <header data-nav="clientes"></header>
+ 
 
-    <div class="perfil-container">
-        <h1>Mi Perfil</h1>
-        <p class="subtitulo">Actualiza tu información personal</p>
-
-        <form class="perfil-form">
-            <div class="input-group">
-                <label for="usuario">Nombre de usuario</label>
-                <input type="text" id="usuario" placeholder="Tu nombre de usuario">
+    <div class="perfil-page">
+        <div class="perfil-card">
+ 
+            <!-- CABECERA: avatar + nombre + datos resumen -->
+            <div class="perfil-header">
+                <div class="avatar">
+                    <span class="material-icons">account_circle</span>
+                </div>
+                <div class="perfil-header-info">
+                    <h2 id="aside-nombre">Cargando...</h2>
+                    <p id="aside-username" class="aside-username"></p>
+                    <div class="aside-datos">
+                        <div class="aside-dato">
+                            <span class="material-icons">email</span>
+                            <span id="aside-email">—</span>
+                        </div>
+                        <div class="aside-dato">
+                            <span class="material-icons">phone</span>
+                            <span id="aside-telefono">—</span>
+                        </div>
+                        <div class="aside-dato">
+                            <span class="material-icons">location_on</span>
+                            <span id="aside-direccion">—</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="input-group">
-                <label for="email">Correo electrónico</label>
-                <input type="email" id="email" placeholder="correo@ejemplo.com">
+ 
+            <!-- SEPARADOR -->
+            <div class="separador"></div>
+ 
+            <!-- FORMULARIO -->
+            <h3 class="form-titulo">
+                <span class="material-icons">edit</span> Editar información personal
+            </h3>
+            <p class="form-subtitulo">Los campos que dejes en blanco no se modificarán.</p>
+ 
+            <div class="form-grid">
+                <div class="campo-grupo">
+                    <label for="email">
+                        <span class="material-icons">email</span> Correo electrónico
+                    </label>
+                    <input type="email" id="email" placeholder="correo@ejemplo.com">
+                </div>
+                <div class="campo-grupo">
+                    <label for="telefono">
+                        <span class="material-icons">phone</span> Teléfono
+                    </label>
+                    <input type="tel" id="telefono" placeholder="+34 600 000 000">
+                </div>
+                <div class="campo-grupo full-width">
+                    <label for="direccion">
+                        <span class="material-icons">location_on</span> Dirección
+                    </label>
+                    <input type="text" id="direccion" placeholder="Tu dirección">
+                </div>
+                <div class="campo-grupo full-width">
+                    <label for="password">
+                        <span class="material-icons">lock</span> Nueva contraseña
+                        <span class="label-hint">(déjalo vacío si no quieres cambiarla)</span>
+                    </label>
+                    <input type="password" id="password" placeholder="••••••••">
+                </div>
             </div>
-
-            <div class="input-group">
-                <label for="telefono">Teléfono</label>
-                <input type="tel" id="telefono" placeholder="+34 600 000 000">
+ 
+            <div class="form-acciones">
+                
+                <button id="btn-guardar" type="button">
+                    <span class="material-icons">save</span> Guardar cambios
+                </button>
             </div>
-
-            <div class="input-group">
-                <label for="direccion">Dirección</label>
-                <input type="text" id="direccion" placeholder="Tu dirección">
-            </div>
-
-            <div class="input-group">
-                <label for="password">Nueva contraseña</label>
-                <input type="password" id="password" placeholder="********">
-            </div>
-
-            <button type="submit"><a href="reservas.html">Guardar cambios</a></button>
-        </form>
+ 
+            <p id="msg-ok"  class="msg-ok"  style="display:none">✅ Datos actualizados correctamente.</p>
+            <p id="msg-err" class="msg-err" style="display:none"></p>
+ 
+        </div>
     </div>
-<script>
-  const usuario = JSON.parse(localStorage.getItem('usuario') || '{}');
-  
-  // Mostrar nombre en cualquier elemento
-  document.getElementById('nombre-usuario').textContent = usuario.username || 'Invitado';
-  document.getElementById('email-usuario').textContent = usuario.email || '';
-</script>
+ 
+    <footer></footer>
+ 
+    <script src="js/componentes.js"></script>
+    <script src="js/aClientes.js"></script>
+ 
 </body>
 </html>
