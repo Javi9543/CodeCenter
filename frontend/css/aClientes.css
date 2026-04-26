@@ -1,0 +1,187 @@
+/* =============================================
+   aCliente.css — Mi Perfil (una sola tarjeta)
+   ============================================= */
+
+a { text-decoration: none; }
+
+/* --- PÁGINA --- */
+.perfil-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;      
+    padding: 10px 5%;
+    min-height: calc(100vh - 250px); 
+}
+
+/* --- TARJETA ÚNICA --- */
+.perfil-card {
+    background-color: #132D46;
+    border-radius: 16px;
+    padding: 36px 40px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    border-top: 3px solid #01C38D;
+    height: fit-content;
+}
+
+/* --- CABECERA: avatar a la izquierda, datos a la derecha --- */
+.perfil-header {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-bottom: 0;
+}
+
+.avatar .material-icons {
+    font-size: 90px;
+    color: #01C38D;
+}
+
+.perfil-header-info {
+    flex: 1;
+}
+
+.perfil-header-info h2 {
+    color: #ffffff;
+    font-size: 1.6rem;
+    margin: 0 0 4px 0;
+}
+
+.aside-username {
+    color: #01C38D;
+    font-size: 0.9rem;
+    margin: 0 0 14px 0;
+}
+
+.aside-datos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+}
+
+.aside-dato {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #ccc;
+    font-size: 0.95rem;
+}
+
+.aside-dato .material-icons {
+    color: #01C38D;
+    font-size: 17px;
+}
+
+/* --- SEPARADOR --- */
+.separador {
+    border-top: 1px solid #1e3d5a;
+    margin: 28px 0;
+}
+
+/* --- TÍTULO FORMULARIO --- */
+.form-titulo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #5D9CEC;
+    font-size: 1.1rem;
+    margin: 0 0 6px 0;
+}
+
+.form-titulo .material-icons { font-size: 20px; }
+
+.form-subtitulo {
+    color: #696E79;
+    font-size: 0.85rem;
+    margin: 0 0 24px 0;
+}
+
+/* --- GRID DE CAMPOS --- */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.full-width { grid-column: 1 / -1; }
+
+.campo-grupo label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #01C38D;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.campo-grupo label .material-icons { font-size: 15px; }
+
+.label-hint {
+    color: #696E79;
+    text-transform: none;
+    font-size: 0.75rem;
+}
+
+.campo-grupo input {
+    width: 100%;
+    padding: 12px 14px;
+    background-color: #0f3460;
+    border: 1px solid #1e3d5a;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.campo-grupo input:focus {
+    border-color: #01C38D;
+    box-shadow: 0 0 6px rgba(1,195,141,0.25);
+}
+
+/* --- BOTONES --- */
+.form-acciones {
+    display: flex;
+    gap: 16px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+
+
+#btn-guardar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #01C38D;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#btn-guardar:hover {
+    background-color: #00a977;
+    color: #fff;
+}
+
+/* --- MENSAJES --- */
+.msg-ok  { color: #01C38D; margin-top: 16px; font-size: 0.9rem; }
+.msg-err { color: #e84c2b; margin-top: 16px; font-size: 0.9rem; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 600px) {
+    .perfil-header { flex-direction: column; text-align: center; }
+    .aside-datos   { justify-content: center; }
+    .form-grid     { grid-template-columns: 1fr; }
+    .full-width    { grid-column: 1; }
+    .form-acciones { flex-direction: column; }
+}
