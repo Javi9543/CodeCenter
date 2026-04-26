@@ -5,7 +5,7 @@ Cada clase aquí es una tabla en la base de datos.
 SQLAlchemy se encarga de crearla automáticamente.
 """
 
-from sqlalchemy import Column, Integer, String, Boolean, Date, Time
+from sqlalchemy import Column, Integer, String, Boolean
 from app.database import Base
 
 
