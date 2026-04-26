@@ -1,55 +1,241 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_blue.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/global.css">
-    <title>CodeCenter</title>
+    <title>CodeCenter - Reservas</title>
+    <style>
+        /* Diseño de página en dos columnas */
+        .reserva-layout {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        /* Columna Izquierda: Calendario */
+        .col-calendario {
+            flex: 0 0 380px;
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .mes-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .mes-btn {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+
+        .mes-btn:hover {
+            background: #f0f7ff;
+            border-color: #5D9CEC;
+            color: #5D9CEC;
+        }
+
+        .mes-titulo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .cal-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+        }
+
+        .cal-header {
+            font-weight: bold;
+            color: #bbb;
+            font-size: 0.8rem;
+            padding-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .cal-day {
+            padding: 15px 0;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: 0.2s;
+            font-weight: 500;
+            color: #444;
+        }
+
+        .cal-day:hover:not(.vacio) {
+            background: #f0f7ff;
+            color: #5D9CEC;
+        }
+
+        .cal-day.hoy {
+            color: #5D9CEC;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        .cal-day.seleccionado {
+            background: #5D9CEC !important;
+            color: white !important;
+            box-shadow: 0 4px 12px rgba(93, 156, 236, 0.4);
+        }
+
+        .cal-day.vacio {
+            cursor: default;
+        }
+
+        /* Columna Derecha: Horas */
+        .col-horas {
+            flex: 1;
+            min-width: 320px;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .grid-horas {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        /* Días pasados: oscuros y bloqueados */
+        .cal-day.pasado {
+            background-color: #f2f2f2 !important; /* Gris más oscuro que el fondo */
+            color: #bbb !important;               /* Texto tenue */
+            cursor: not-allowed !important;       /* Cursor de bloqueo */
+            pointer-events: none;                 /* Desactiva clics y hovers */
+            opacity: 0.7;
+        }
+
+        .cal-day.pasado:hover {
+            background-color: #f2f2f2 !important;
+        }
+
+        /* Botones de horas (Azul sólido, texto blanco) */
+        .btn-reserva-hora {
+            background: #5D9CEC;
+            border: none;
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1rem;
+            box-shadow: 0 4px 6px rgba(93, 156, 236, 0.2);
+        }
+
+        .btn-reserva-hora:hover {
+            background: #4a89d4;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Animación para cuando se reserva una hora */
+        .btn-reserva-hora.reservado {
+            transform: scale(0);
+            opacity: 0;
+        }
+
+        .btn-volver {
+            background: #333;
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-volver:hover { background: #555; }
+
+        /* Modales */
+        .modal-reserva {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6); display: none;
+            align-items: center; justify-content: center; z-index: 9999;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-reserva-contenido {
+            background: white; padding: 40px; border-radius: 20px;
+            text-align: center; max-width: 400px; width: 90%;
+        }
+
+        .btn-confirmar { background: #5D9CEC; color: white; border: none; padding: 14px 28px; border-radius: 10px; cursor: pointer; font-weight: bold; }
+        .btn-cancelar { background: #f0f0f0; color: #555; border: none; padding: 14px 28px; border-radius: 10px; cursor: pointer; font-weight: bold; margin-right: 10px; }
+    </style>
 </head>
+<body class="body-cliente">
 
-<<body class="body-cliente">
-
-    <<header data-nav="clientes"></header>
+    <header data-nav="clientes"></header>
 
     <div class="contenedor-principal">
-        <h1 class="titulo-reserva">Calendario de disponibilidad</h1>
-        <p class="subtitulo-reserva">Selecciona un día para ver los horarios en <span id="nombre-deporte" style="color: #5D9CEC; font-weight: bold;">...</span></p>
+        <h1 class="titulo-reserva" style="text-align: center; margin-bottom: 10px;">Calendario de disponibilidad</h1>
+        <p class="subtitulo-reserva" style="text-align: center; color: #666;">
+            Actividad: <span id="nombre-deporte" style="color: #5D9CEC; font-weight: bold;"></span>
+        </p>
         
-        <div class="calendario-wrapper">
-            <div id="calendario-inline"></div>
-            
-            <div class="calendario-leyenda">
-                <div class="leyenda-item"><span class="punto hoy"></span> Hoy</div>
-                <div class="leyenda-item"><span class="punto seleccionado"></span> Seleccionado</div>
-                <div class="leyenda-item"><span class="punto ocupado"></span> No disponible</div>
+        <div class="reserva-layout">
+            <div class="col-calendario">
+                <div id="contenido-cal"></div>
+            </div>
+
+            <div id="selector-horas" class="col-horas" style="display:none;">
+                <h3 style="margin: 0; color: #333; text-align: center;">Horarios para el <span id="fecha-elegida" style="color: #5D9CEC;"></span></h3>
+                <div class="grid-horas"></div>
             </div>
         </div>
 
-        <div id="selector-horas" style="display:none; margin-top: 20px;">
-            <h3>Horas disponibles para el <span id="fecha-elegida"></span></h3>
-            <div class="grid-horas">
-                </div>
+        <div style="text-align: center; margin-top: 50px;">
+            <button class="btn-volver" onclick="location.href='nuevaReserva.html'">Volver a actividades</button>
         </div>
+    </div>
 
-        <button class="btn-volver" onclick="location.href='nuevaReserva.html'">
-            <span>←</span> Volver a actividades
-        </button>
+    <div id="modal-confirmar" class="modal-reserva">
+        <div class="modal-reserva-contenido">
+            <h3>Confirmar reserva</h3>
+            <p id="texto-detalle-reserva" style="margin: 20px 0; color: #666; line-height: 1.6;"></p>
+            <div style="display: flex; justify-content: center;">
+                <button id="btn-cancelar-reserva" class="btn-cancelar">Cancelar</button>
+                <button id="btn-aceptar-reserva" class="btn-confirmar">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-exito" class="modal-reserva">
+        <div class="modal-reserva-contenido">
+            <h3>Reserva confirmada</h3>
+            <p style="margin: 20px 0; color: #666;">Tu plaza ha sido bloqueada correctamente.</p>
+            <button id="btn-cerrar-exito" class="btn-confirmar" style="width: 100%;">Aceptar</button>
+        </div>
     </div>
 
     <footer></footer>
 
-  <script src="js/componentes.js"></script>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
+    <script src="js/componentes.js"></script>
     <script src="js/reservas.js"></script>
-
-    
 </body>
-
 </html>

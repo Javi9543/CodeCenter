@@ -19,31 +19,21 @@ main {
   width: 100%;
 }
 
+/* CABECERA CENTRADA */
 .cabecera-mis-reservas {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Centrado horizontal */
     align-items: center;
-    margin-bottom: 30px;
+    text-align: center;
+    margin-bottom: 40px;
+    width: 100%;
 }
 
 .titulo-pagina {
-    font-size: 2.2rem;
+    font-size: 2.5rem; /* Tamaño actualizado */
     color: #191e29;
     margin: 0;
 }
-
-.btn-nueva-reserva {
-    background-color: #191e29;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: background 0.2s;
-}
-
-.btn-nueva-reserva:hover { background-color: #01c38d; }
 
 /* RESUMEN */
 .resumen-cards {
@@ -214,14 +204,7 @@ main {
 
 .btn-ir-reservar:hover { background: #01c38d; }
 
-/* LISTA RESERVAS */
-.texto-vacio {
-    color: #aaa;
-    font-size: 0.9rem;
-    text-align: center;
-    padding: 3rem 0;
-}
-
+/* LISTA RESERVAS Y ANIMACIÓN */
 .reserva-item {
     display: flex;
     align-items: center;
@@ -232,11 +215,39 @@ main {
     background: #f8f9fa;
     border-left: 4px solid #01c38d;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.4s ease-in-out; /* Animación suave integrada */
+    max-height: 200px;
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .reserva-item:hover { background: #eef0f2; transform: translateX(4px); }
-.reserva-item.cancelada { border-left-color: #ccc; opacity: 0.6; }
+
+.reserva-item.eliminando {
+    opacity: 0;
+    transform: translateX(50px);
+    max-height: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    border: none !important;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* Días pasados: oscuros y bloqueados */
+.cal-day.pasado {
+    background-color: #f2f2f2 !important;
+    color: #bbb !important;
+    cursor: not-allowed !important;       
+    pointer-events: none;                 
+    opacity: 0.7;
+}
+
+.cal-day.pasado:hover {
+    background-color: #f2f2f2 !important;
+}
 
 .reserva-deporte {
     font-weight: 700;
@@ -255,9 +266,8 @@ main {
 }
 
 .badge.activa { background: #d4f5e9; color: #01c38d; }
-.badge.cancelada { background: #eee; color: #999; }
 
-/* MODAL */
+/* MODALES */
 .modal-overlay {
     position: fixed;
     inset: 0;
@@ -311,11 +321,7 @@ main {
     cursor: pointer;
     color: #555;
     transition: background 0.2s;
-    flex-shrink: 0;
 }
-
-.modal-cerrar:hover { background: #e0e0e0; }
-.modal-cerrar .material-symbols-outlined { font-size: 18px; }
 
 .modal-estado-bar {
     display: flex;
@@ -329,8 +335,6 @@ main {
     font-weight: 600;
     font-size: 0.9rem;
 }
-
-.modal-estado-bar .material-symbols-outlined { font-size: 18px; }
 
 .det-grid {
     display: grid;
@@ -348,72 +352,29 @@ main {
     gap: 12px;
 }
 
-.det-icono {
-    color: #01c38d;
-    font-size: 20px;
-}
-
-.det-label {
-    display: block;
-    font-size: 11px;
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 4px;
-}
-
-.det-valor {
-    display: block;
-    font-weight: 700;
-    color: #191e29;
-    font-size: 0.95rem;
-    text-transform: capitalize;
-}
+.det-icono { color: #01c38d; font-size: 20px; }
 
 .modal-acciones {
     display: flex;
-    gap: 0;
     border-top: 1px solid #f0f0f0;
 }
 
-.btn-modificar {
+.btn-modificar, .btn-cancelar {
     flex: 1;
     padding: 16px;
     border: none;
-    border-right: 1px solid #f0f0f0;
     background: transparent;
-    color: #191e29;
     font-weight: 600;
     font-size: 0.9rem;
     cursor: pointer;
-    transition: background 0.2s;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
 }
 
-.btn-modificar .material-symbols-outlined { font-size: 18px; }
-.btn-modificar:hover { background: #f8f9fa; }
-
-.btn-cancelar {
-    flex: 1;
-    padding: 16px;
-    border: none;
-    background: transparent;
-    color: #e74c3c;
-    font-weight: 600;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: background 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
-.btn-cancelar .material-symbols-outlined { font-size: 18px; }
-.btn-cancelar:hover { background: #fff5f5; }
+.btn-modificar { border-right: 1px solid #f0f0f0; color: #191e29; }
+.btn-cancelar { color: #e74c3c; }
 
 /* MODAL CONFIRMAR */
 .modal-pequeno {
@@ -422,31 +383,10 @@ main {
     padding: 36px 28px 0;
 }
 
-.icono-aviso {
-    font-size: 48px;
-    color: #e74c3c;
-    display: block;
-    margin-bottom: 12px;
-}
-
-.modal-pequeno h3 {
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-    color: #191e29;
-}
-
-.modal-pequeno p {
-    color: #888;
-    font-size: 0.9rem;
-    margin-bottom: 0;
-}
-
-.modal-pequeno .modal-acciones {
-    margin-top: 24px;
-}
+.icono-aviso { font-size: 48px; color: #e74c3c; display: block; margin-bottom: 12px; }
 
 @media (max-width: 900px) {
     .mis-reservas-grid { grid-template-columns: 1fr; }
     .resumen-cards { grid-template-columns: 1fr; }
-    .cabecera-mis-reservas { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .cabecera-mis-reservas { flex-direction: column; align-items: center; gap: 12px; }
 }
