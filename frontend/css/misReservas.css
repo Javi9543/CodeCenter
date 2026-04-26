@@ -1,15 +1,22 @@
-.body-cliente {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+body {
+  margin: 0;
+  background-color: #e4e3e3; /* ← mueve el fondo aquí */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  /* sin background aquí */
 }
 
 .contenedor-principal {
-    flex: 1;
-    padding: 50px 6%;
-    max-width: 1300px;
-    margin: 0 auto;
-    width: 100%;
+ 
+  padding: 50px 6%;
+  max-width: 1300px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .cabecera-mis-reservas {

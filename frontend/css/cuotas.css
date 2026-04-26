@@ -29,7 +29,54 @@ h1{
     text-transform: uppercase;
 }
 
+footer {
+  background-color: #191e29;
+  color: white;
+  padding: 30px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #2c3e50;
+}
  
+
+footer address {
+  font-style: normal;
+  flex: 1;
+  text-align: center;
+}
+
+.footer-centro {
+  flex: 1;
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.footer-redes {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.footer-redes img {
+  width: 25px;
+  height: 25px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease;
+}
+
+.footer-redes img:hover {
+  transform: scale(1.2);
+}
+
+.footer-contacto a {
+  color: #5D9CEC;
+  text-decoration: none;
+}
+
+
 /* Responsive para pantallas pequeñas */
 @media (max-width: 768px) {
     .footer-content {

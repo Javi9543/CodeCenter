@@ -1,4 +1,18 @@
 
+body {
+  margin: 0;
+  background-color: #154b7e;
+  font-family: Arial, sans-serif;
+
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+} 
 
 /* HERO */
 .hero {
@@ -226,6 +240,7 @@
   text-align: center;
   padding: 80px 6%;
   background-color: #0f3460;
+  min-height: 30vh;
 }
 
 .cta h2 {
