@@ -7,9 +7,34 @@ services:
       - "80:80"
     volumes:
       - ./frontend:/usr/share/nginx/html
+    depends_on:
+      - backend
+    networks:
+      - app-network
+  
+
+
+  # --- BACKEND: FastAPI con Python ---
+  backend:
+    build:
+      context: .        # El contexto es la raíz para acceder al requirements.txt
+      dockerfile: backend/Dockerfile
+    container_name: web_backend
+    ports:
+      - "8000:8000"     # La API se ve en http://localhost:8000
+    volumes:
+      - ./backend:/app  # Sincroniza el código para desarrollo
+    #enviroment:
+    #  - RDS_HOST     = "PEGAR-AQUI-EL-ENDPOINT-DE-RDS" 
+    #  - RDS_PORT     = "5432"
+    #  - RDS_USER     = "PEGAR-AQUI-EL-USUARIO"            # El que pusisteis al crear la RDS
+    #  - RDS_PASSWORD = "PEGAR-AQUI-LA-CONTRASEÑA"         # La que pusisteis al crear la RDS
+    #  - RDS_DB       = "PEGAR-AQUI-EL-NOMBRE-DE-LA-BD"    # Ej: codecenter
+ 
     networks:
       - app-network
 
+  
 networks:
   app-network:
     driver: bridge

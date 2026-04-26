@@ -11,9 +11,19 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
  
 # --- URL DE CONEXIÓN ---
-# SQLite guarda todo en un archivo .db en la carpeta del proyecto.
-# Para pasar a PostgreSQL en AWS RDS, se cambiaría por algo como:
-# "postgresql://usuario:contraseña@host-rds.amazonaws.com:5432/nombre_bd"
+# ***************AWS**********************
+# RDS_HOST     = "PEGAR-AQUI-EL-ENDPOINT-DE-RDS"   # Ej: codecenter.xxxx.eu-west-1.rds.amazonaws.com
+# RDS_PORT     = "5432"
+# RDS_USER     = "PEGAR-AQUI-EL-USUARIO"            # El que pusisteis al crear la RDS
+# RDS_PASSWORD = "PEGAR-AQUI-LA-CONTRASEÑA"         # La que pusisteis al crear la RDS
+# RDS_DB       = "PEGAR-AQUI-EL-NOMBRE-DE-LA-BD"    # Ej: codecenter
+ 
+# DATABASE_URL = f"postgresql://{RDS_USER}:{RDS_PASSWORD}@{RDS_HOST}:{RDS_PORT}/{RDS_DB}"
+ 
+# engine = create_engine(DATABASE_URL)
+# DATABASE_URL = "postgresql://usuario:contraseña@host-rds.amazonaws.com:5432/nombre_bd"
+
+# **************LOCALHOST**********************
 DATABASE_URL = "sqlite:///./codecenter.db"
  
 # --- MOTOR ---
@@ -23,7 +33,7 @@ engine = create_engine(
     DATABASE_URL,
     connect_args={"check_same_thread": False}
 )
- 
+ # ***********FIN****LOCALHOST******************
 # --- SESIÓN ---
 # Cada petición HTTP abre una sesión, hace su trabajo, y la cierra.
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
